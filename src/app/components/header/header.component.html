@@ -1,1 +1,118 @@
 <p>header works!</p>
+
+<div class="card mat-card" id="first-card">
+  <div id="profile-background">
+    <img src="assets/images/helly.jpg" />
+    
+  </div>
+  <div id="info" style="padding: 20px">
+    <div id="info-img">
+      <img
+        class="profile-image"
+        style="border-radius: 75%; width: 200px; height: 200 px"
+        src="assets/images/perfil.jpg"
+      />
+      <div class="btn-edit">
+        <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+      </div>
+    </div>
+
+    <div id="info-data">
+      <div>
+        <div class="btn-edit" oneclick="cambiar_paraffo()">
+          <h1>Mauricio Carlos</h1>
+        </div>
+
+        <div id="info-company">Desarrollador en Rio</div>
+        <div id="info-contact">
+          <span>Santa fe (Argentina) - Huancavelica (Peru)</span>
+          <span><a href="#">Informacion de contacto</a></span>
+        </div>
+      </div>
+      <ul id="info-details">
+        <li>
+          <a href="#">
+            <img src="" />
+            <h2>Rio salado</h2>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <img src="" />
+            <h2>Megasoft</h2>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="info-actions">
+      <button type="button" class="btn btn-primary">Tengo interes en:</button>
+      <button type="button" class="btn btn-light">Añadir una seccion</button>
+      <button type="button" class="btn btn-light">Más...</button>
+    </div>
+  </div>
+
+  <!-- Content 
+<input type="file" id="file1" onchange="showFile(this)">
+-->
+  <script>
+    /*
+onechange: modificar html
+oneclick: hizo click
+onmouseout: mueve el puntero sobe el elemento
+onekeydown: presiona una tecla
+onload:el navegador se termino de cargar
+*/
+    function cambiar_parrafo() {
+      document.getElementById("edit-acercade").style.display = "block";
+      let texto = document.getElementById("text-acercade").innerText;
+      console.log(texto);
+
+      //console.log("Perro");
+    }
+
+    function myFunction2(valor) {
+      document.getElementById("text-acercade").innerText = valor;
+    }
+
+    function logMessage(message) {
+      console.log(message + "<br>");
+    }
+
+    //controla si presiono enter
+    let textarea = document.getElementById("edit-acercade");
+    textarea.addEventListener("keyup", (e) => {
+      logMessage('Key "${e.key}" released [event: keyup]');
+      if (e.key == "Enter") {
+        document.getElementById("edit-acercade").style.display = "none";
+      }
+    });
+
+    //carga contenido y lo muestra
+    function showFile(input) {
+      let file = input.files[0];
+      alert(`file name: ${file.name}`);
+      alert(`Last modified: ${file.lastModified}`);
+
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        document.getElementById("text-acercade").innerText = reader.result;
+      };
+      reader.onerror = function () {
+        console.log(reader.error);
+      };
+    }
+    function foo() {
+      undefined = "2";
+      console.log(undefined * 2);
+      var newDiv = document.createElement("div");
+      var newContent = document.createTextNode("hOLA jUAN CARLOS");
+      newDiv.appendChild(newContent);
+      var currentDiv = document.getElementById("1");
+      document.body.insertBefore(newDiv, currentDiv);
+    }
+    foo();
+  </script>
+</div>
