@@ -1,71 +1,40 @@
+<!-- Content 2 -->
 <div class="card mat-card">
   <div class="card-titles">
-      <h2>Acerca de</h2>
-      
-      <div class="btn-edit" onclick="cambiar_parrafo()"> <a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
+    <div class="btn-edit" (click)="clickme()">
+      <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+    </div>
+    <h2>Acerca de</h2>
+    <p>{{ acercade }}</p>
   </div>
   <div>
-      <p id="text-acercade">Matematico, perrero e informatico, recomendado por los mejores</p>
+    <div class="btn-edit" (click)="clickme()">
+      <a href="#" class="btn-right"><i class="fa fa-x"></i></a>
+    </div>
+    <input type="text" name="acercade" #myNameElem style="display: none" />
+    <br />
+    <button
+      class="btn btn-primary"
+      (click)="getValue()"
+      #myNameElemb
+      style="display: none"
+    >
+      Aceptar Modificacion:
+    </button>
+    <br />
+    <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
+
+      input para el texto  tipo texto acercade
+      <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display:none" />-->
   </div>
-  <div>
-      <!-- input para el texto  tipo texto acercade-->
-      
-<input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display:none"/>
-  </div>
+  <!-- input tipo file archivo....-->
+  
+    <input
+      #myNameElemc
+      type="file"
+      name="fileupload"
+      class="fa fa-file"
+      (change)="cargar_archivo($event)"
+      style="display: none"
+  />
 </div>
-
-
-
-
-<script>
-  function cambiar_parrafo() {
-    document.getElementById("edit-acercade").style.display = "block";
-    let texto = document.getElementById("text-acercade").innerText;
-    console.log(texto);
-    //console.log("Perro");
-  }
-
-  function myFunction2(valor) {
-    document.getElementById("text-acercade").innerText = valor;
-  }
-
-  function logMessage(message) {
-    console.log(message + "<br>");
-  }
-
-  //controla si presiono enter
-  let textarea = document.getElementById("edit-acercade");
-  textarea.addEventListener("keyup", (e) => {
-    logMessage('Key "${e.key}" released [event: keyup]');
-    if (e.key == "Enter") {
-      document.getElementById("edit-acercade").style.display = "none";
-    }
-  });
-
-  //carga contenido y lo muestra
-  function showFile(input) {
-    let file = input.files[0];
-    alert(`file name: ${file.name}`);
-    alert(`Last modified: ${file.lastModified}`);
-
-    let reader = new FileReader();
-    reader.readAsText(file);
-    reader.onload = function () {
-      console.log(reader.result);
-      document.getElementById("text-acercade").innerText = reader.result;
-    };
-    reader.onerror = function () {
-      console.log(reader.error);
-    };
-  }
-
-  function foo() {
-    undefined = "2";
-    console.log(undefined * 2);
-    var newDiv = document.createElement("div");
-    var newContent = document.createTextNode("hOLA jUAN CARLOS");
-    newDiv.appendChild(newContent);
-    var currentDiv = document.getElementById("1");
-    document.body.insertBefore(newDiv, currentDiv);
-  }
-</script>

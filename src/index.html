@@ -1,26 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Proyecto</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <title>Mauricio carlos</title>
-  <meta name="description" content="Roughly 155 characters">
-  <!-- Poner borde lila -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-   <!-- Poner formitas a botones de editar y agregar, etc -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>Proyecto</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Mauricio carlos</title>
+    <meta name="description" content="Roughly 155 characters" />
+    <!-- Poner borde lila -->
+    
+    <!-- Poner formitas a botones de editar y agregar, etc -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <!-- No se sabe que hace todavia -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+  <script>
+    function cambiar_parrafo() {
+      document.getElementById("edit-acercade").style.display = "block";
+      let texto = document.getElementById("text-acercade").innerText;
+      
+      console.log(texto);
+      
+    }
 
-  <!-- No se sabe que hace todavia -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
- <!-- Decia my style
-  <link rel="stylesheet" type="text/css" href="style.css"> -->
-  <link rel="stylesheet" href="style.css">
+    function myFunction2(valor) {
+      
+      document.getElementById("text-acercade").innerText = valor;
+    
+    //controla si presiono enter
+    let textarea = document.getElementById("edit-acercade");
+    textarea.addEventListener("keyup", (e) => {
+      logMessage('Key "${e.key}" released [event: keyup]');
+      if (e.key == "Enter") {
+        document.getElementById("edit-acercade").style.display = "none";
+      }
+    });
+    
+    
+    }
+
+    function logMessage(message) {
+      console.log(message + "<br>");
+    }
+
+    
+
+    //carga contenido y lo muestra
+    function showFile(input) {
+      let file = input.files[0];
+      alert(`file name: ${file.name}`);
+      alert(`Last modified: ${file.lastModified}`);
+
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        document.getElementById("text-acercade").innerText = reader.result;
+      };
+      reader.onerror = function () {
+        console.log(reader.error);
+      };
+    }
+
+    function foo() {
+      undefined = "2";
+      console.log(undefined * 2);
+      var newDiv = document.createElement("div");
+      var newContent = document.createTextNode("hOLA jUAN CARLOS");
+      newDiv.appendChild(newContent);
+      var currentDiv = document.getElementById("1");
+      document.body.insertBefore(newDiv, currentDiv);
+    }
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-</head>
-<body>
-  <app-root></app-root>
-</body>
 </html>

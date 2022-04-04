@@ -9,6 +9,11 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { ProjectItemComponent } from './components/project-item/project-item.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
     ExperienciaComponent,
     EducacionComponent,
     SkillComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    ProjectsComponent,
+    AddProjectComponent,
+    ProjectItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
