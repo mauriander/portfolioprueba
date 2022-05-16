@@ -1,10 +1,20 @@
 <p>project-item works!</p>
+
 <div  class="project"
-[ngClass]="{integrante :project.integrante}"
+[ngClass]="{nombre :project.nombre}"
 [ngStyle]="{'color' : 'green'}"
 (click)="onToggle(project)">
-<h3>{{project.text}}</h3>
-<h3>{{project.integrante}}</h3>
-<fa-icon [ngStyle]="{'color' : 'red'}" text="Eliminar" (click)="onDelete(project)"   ></fa-icon><p>{{project.id}}</p>
+<h1><a href="#" class="btn-right" text ="Editar" (click)="onEdit(project)"><i class="fas fa-pen"></i>        </a>
+    <br>
+
+<fa-icon [icon]="faTimes" [ngStyle]="{'color' : 'red'}" text="Eliminar" (click)="onDelete()"   ></fa-icon><p>{{project.nombre}}</p>
+</h1>
+<h3>Codigo de proyecto: {{project.id}}</h3>
+<h3>Descripcion: {{project.descripcion_proyecto}}</h3>
+<h3>Tecnologias Utilizadas: {{project.tipo_tecnologia}}</h3>
+<h3>Url de proyecto: {{project.url}}</h3>
+
+
+
 </div>
-<p>fin project-item works!</p>
+<p>Fin project</p>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgCircleProgressModule } from "ng-circle-progress";
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -15,6 +16,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AddProjectComponent } from './components/add-project/add-project.component';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HeadComponent } from './components/head/head.component';
+import { AddSkillComponent } from './components/add-skill/add-skill.component';
+import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
+import { PortfololioComponent } from './components/portfololio/portfololio.component';
+import { SkillItemComponent } from './components/skill-item/skill-item.component';
+import { AddExperienceComponent } from './components/add-experience/add-experience.component';
+import { ExperienceItemComponent } from './components/experience-item/experience-item.component';
+import { TipoeducacionComponent } from './components/tipoeducacion/tipoeducacion.component';
+import { TipoeducacionItemComponent } from './components/tipoeducacion-item/tipoeducacion-item.component';
+import { AddTipoeducacionComponent } from './components/add-tipoeducacion/add-tipoeducacion.component';
+import { AddEducacionComponent } from './components/add-educacion/add-educacion.component';
+import { EducacionItemComponent } from './components/educacion-item/educacion-item.component';
+
 
 
 @NgModule({
@@ -27,14 +44,33 @@ import { ProjectItemComponent } from './components/project-item/project-item.com
     SkillComponent,
     ProjectsComponent,
     AddProjectComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    HeadComponent,
+    IniciarSesionComponent,
+    PortfololioComponent,
+    AddSkillComponent,
+    SkillItemComponent,
+    AddExperienceComponent,
+    ExperienceItemComponent,
+    TipoeducacionComponent,
+    TipoeducacionItemComponent,
+    AddTipoeducacionComponent,
+    AddEducacionComponent,
+    EducacionItemComponent,
+
+   
+    
+    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    FontAwesomeModule,DragDropModule,
+    NgCircleProgressModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent]

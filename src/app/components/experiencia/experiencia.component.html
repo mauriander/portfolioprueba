@@ -1,14 +1,35 @@
 <p>experiencia works!</p>
 <div class="card mat-card">
-    <div id="experience">
-         <div class="card-titles">
-             <h2>Experiencia</h2>
-             <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus"></i></a></div>
-         </div>
+  <div id="experience">
+    <div class="card-titles">
+      <h2>Experiencia</h2>
+      <div class="btn-edit">
+        <a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+      </div>
     </div>
-</div> 
+  </div>
 
 
+ 
 
+     <app-add-experience (onAddExperience)="addExperience($event)"></app-add-experience>
+<!--
+  Es lo mismo que anuncia de drag and drop 
+  <app-project-item
+    *ngFor="let project of projects"
+    [project]="project"
+    (onDeleteProject)="deleteProject(project)"
+  ></app-project-item>-->
 
- <input type="file" id="file1" onchange="showFile2(this)">
+  <p>Prubea de drag and cdkDropList</p>
+
+  <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+    <div class="e-box" *ngFor="let experience of experiences" cdkDrag>
+      <app-experience-item
+        [experiencia]="experience"
+        (onDeleteExperiencia)="deleteExperience(experience)"
+      ></app-experience-item>
+    </div>
+  </div>
+
+ </div>

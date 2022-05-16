@@ -1,4 +1,8 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Persona } from 'src/app/model/persona.model';
+import { PersonaService } from 'src/app/services/persona.service';
+
+
 
 @Component({
   selector: 'app-acercade',
@@ -6,11 +10,14 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./acercade.component.css'],
 })
 export class AcercadeComponent implements OnInit {
+
+  persona: Persona | undefined;
+  
   @Input()
   acercade = 'Mauricio A. Argentina programa';
 
   confirma='';
-  constructor() {}
+  constructor(private servicio:PersonaService) {}
   @ViewChild('myNameElem')
   myNameElem!: ElementRef;
   
@@ -20,6 +27,9 @@ export class AcercadeComponent implements OnInit {
   @ViewChild('myNameElemc')
   myNameElemc!: ElementRef;
   
+   
+
+
   getValue() {
     this.acercade = this.myNameElem.nativeElement.value;
     this.myNameElem.nativeElement.style.display = 'none';
@@ -27,7 +37,22 @@ export class AcercadeComponent implements OnInit {
     this.myNameElemc.nativeElement.style.display = 'none';
     alert(this.acercade);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {this.getPersona();}
+
+  getPersona(){
+    this.servicio.getPersona().subscribe(res=>{
+     // console.log(res); 
+      this.persona=res;
+    })
+//alert(this.servicio.getPersona());
+    }
+
+
+
+
+
+
+
   clickme() {
     this.myNameElem.nativeElement.style.display = 'block';
     this.myNameElemb.nativeElement.style.display = 'block';

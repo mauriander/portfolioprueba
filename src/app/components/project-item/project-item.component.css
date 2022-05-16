@@ -1,0 +1,17 @@
+.project{
+    background-color: aquamarine;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    border-radius: 32px;
+    margin: 20px 20px;
+   
+    border-color: magenta;
+}
+.btn_r
+.project.h3{
+    display: flex;
+    align-items: center;
+}
+

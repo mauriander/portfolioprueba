@@ -1,12 +1,38 @@
 <p>educacion works!</p>
-<div class="card mat-card"><div id="Titulos"></div>
-        <div class="card-titles">
-            <h2>Educacion</h2>
-            <button type="button" class="btn btn-light">Añadir Educacion</button>
-            <button type="button" class="btn btn-light">Hacer un test aptitud</button>
-            <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
-        </div>
-        <div>
-        Insertar mensajes y funciones aquie
-        </div>
+<div class="card mat-card">
+    <div class="card-titles">
+      <div class="btn-edit" (click)="clickme()">
+        <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+  
+        <a href="#" class="btn-right"></a>
+      </div>
+      <h2>Educacion</h2>
     </div>
+
+
+    <app-add-educacion>(onAddEducacion)="addEducacion($event)"</app-add-educacion>    
+     <!--
+    <app-add-tipoeducacion (onAddTipoEducacion)="addTipoEducacion($event)"> </app-add-tipoeducacion>
+       <app-tipoeducacion></app-tipoeducacion>
+ 
+    Es lo mismo que anuncia de drag and drop 
+    <app-tipoeducacion-item
+      *ngFor="let tipoeducacion of projects"
+      [tipoeducacion]="tipoeducacion"
+      (onDeleteProject)="deleteProject(tipoeducacion)"
+    ></app-tipoeducacion-item> -->
+   
+    
+    
+    <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+      <div class="e-box" *ngFor="let educacion of educaciones" cdkDrag>
+        
+             <app-educacion-item
+          [educacion]="educacion"
+          
+          (onDeleteEducacion)="deleteEducacion(educacion)"
+        ></app-educacion-item>
+        
+      </div>
+    </div>
+  </div>

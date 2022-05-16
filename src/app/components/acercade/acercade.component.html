@@ -6,12 +6,17 @@
     </div>
     <h2>Acerca de</h2>
     <p>{{ acercade }}</p>
+    
+
+    <div class="btn tn-primary" (click)="getPersona()">Obtener alerta de persona 9</div>
   </div>
   <div>
     <div class="btn-edit" (click)="clickme()">
       <a href="#" class="btn-right"><i class="fa fa-x"></i></a>
     </div>
-    <input type="text" name="acercade" #myNameElem style="display: none" />
+   <div>
+    <input type="text" name="acercade" #myNameElem placeholder="Agregar contenido" class= "form-control" size="flex" style="display: none" />
+  </div>
     <br />
     <button
       class="btn btn-primary"
@@ -19,7 +24,7 @@
       #myNameElemb
       style="display: none"
     >
-      Aceptar Modificacion:
+      Aceptar Modificacion
     </button>
     <br />
     <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
@@ -33,7 +38,7 @@
       #myNameElemc
       type="file"
       name="fileupload"
-      class="fa fa-file"
+      class="btn btn-primary"
       (change)="cargar_archivo($event)"
       style="display: none"
   />

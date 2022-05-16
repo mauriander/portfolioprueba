@@ -1,16 +1,55 @@
 <p>add-project works!</p>
-<form class="add-form" (ngSubmit)="onSubmit()">
-<div class="form-control">
-    <label for="text">Project</label>
-    <input type="text" name="text" id="text" placeholder="Agregar proyecto" [(ngModel)]="text"/>
+<button
+		class="btn btn-primary"
+	(click)="toogleForm()"
+>
+	{{ mostrarForm ? "Cancelar" : "Agregar Proyecto" }}
+</button>
+<form class="add-form" (ngSubmit)="onSubmit($event)" *ngIf="mostrarForm">
+  <div class="form-control">
+    <label for="text">Nombre</label>
+    <input
+      type="text"
+      name="nombre"
+      id="nombre"
+      placeholder="nombre"
+      [(ngModel)]="nombre"
+    />
+  </div>
+
+  <div class="form-control">
+    <label for="text">url</label>
+    <input
+      type="text"
+      name="nombre"
+      id="url"
+      placeholder="url"
+      [(ngModel)]="url"
+    />
+  </div>
+
+  
+  <div class="form-control">
+    <label for="text">Descripcion</label>
+    <input
+      type="text"
+      name="Descripcion"
+      id="Descripcion"
+      placeholder="Descripcion"
+      [(ngModel)]="descripcion_proyecto"
+    />
+  </div>
+
+  <div class="form-control">
+  <label for="text">tipo_tecnologia</label>
+  <input
+    type="text"
+    name="tipo_tecnologia"
+    id="tipo_tecnologia"
+    placeholder="tipo_tecnologia"
+    [(ngModel)]="tipo_tecnologia"
+  />
 </div>
 
-<div class="form-control">
-    <label for="text">Integrante</label>
-    <input type="text" name="integrante" id="integrante" placeholder="Integrantes" [(ngModel)]="integrante"/>
-</div>
-
-
-
-
+  <input type="submit" value="Agregar Proyecto" class="btn btn-block" />
 </form>
