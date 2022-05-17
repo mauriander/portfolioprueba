@@ -1,0 +1,87 @@
+<p>add-skill works!</p>
+<button
+		class="btn btn-primary"
+	(click)="toogleForm()"
+>
+	{{ mostrarForm ? "Cancelar" : "Agregar Skill" }}
+</button>
+
+<form class="add-form" (ngSubmit)="onSubmit($event)" *ngIf="mostrarForm">
+	*ngIf="mostrarForm"
+	<div class="form-control">
+	  <label for="text">Nombre de la habilidad </label>
+	  <input
+		type="text"
+		name="nombre"
+		id="nombre"
+		placeholder="nombre"
+		[(ngModel)]="nombre"
+	  />
+	</div>
+  
+	<div class="form-control">
+	  <label for="number">Nivel de la habilidad</label>
+	  <input
+		type="number"
+		name="valor"
+		id="valor"
+		placeholder="valor"
+		ngbTooltip="Valor entre 1 y 100"
+		[(ngModel)]="valor"
+		
+	  />
+	</div>
+	<input type="submit" value="Agregar Skill" class="btn btn-block" />
+	<!--<input type="submit" value="Agregar Skill" class="btn btn-block"[disabled]="validForm" />
+	-->
+</form>
+
+
+
+
+
+
+<!--
+
+<form
+	#formSkill
+	
+	(ngSubmit)="onSubmit($event)"
+	*ngIf="mostrarForm"
+	class="m-3 mt-5"
+>
+	<div class="mb-3">
+		<label class="form-label" for="nombre">Nombre:</label>
+		<input
+			class="form-control"
+			type="text"
+			formControlName="nombre"
+			id="nombre"
+			placeholder="Nombre de la skill"
+			ngbTooltip="Entre 3 y 10 caracteres"
+			[(ngModel)]="nombre"
+		/>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" for="nivel">Nivel:</label>
+		<input
+			class="form-control"
+			type="number"
+			formControlName="nivel"
+			id="valor"
+			placeholder="Nivel de la skill"
+			ngbTooltip="Valor entre 1 y 100"
+			[(ngModel)]="valor"
+		/>
+	</div>
+
+		
+
+	
+	
+	<button type="submit" class="btn btn-primary"[disabled]="form.invalid">
+		
+	<button type="submit" class="btn btn-primary" >
+		Nueva skill
+	</button>
+</form>-->

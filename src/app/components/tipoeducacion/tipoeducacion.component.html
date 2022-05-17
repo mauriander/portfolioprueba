@@ -1,4 +1,4 @@
-<p>educacion works!</p>
+<p>tipoeducacion works!</p>
 <div class="card mat-card">
     <div class="card-titles">
       <div class="btn-edit" (click)="clickme()">
@@ -6,34 +6,27 @@
   
         <a href="#" class="btn-right"></a>
       </div>
-      <h2>Educacion</h2>
+      <h2>Tipo Educacion</h2>
     </div>
-
-    <p>e INICIOAorks!</p>
-    <app-add-educacion (onAddEducacion)="addEducacion($event)"></app-add-educacion>    
-    <p>APPPSs!</p>
-         <!--
+    
     <app-add-tipoeducacion (onAddTipoEducacion)="addTipoEducacion($event)"> </app-add-tipoeducacion>
-       <app-tipoeducacion></app-tipoeducacion>
- 
+  <!--
     Es lo mismo que anuncia de drag and drop 
     <app-tipoeducacion-item
       *ngFor="let tipoeducacion of projects"
       [tipoeducacion]="tipoeducacion"
       (onDeleteProject)="deleteProject(tipoeducacion)"
-    ></app-tipoeducacion-item> -->
-   
-    
-    
+    ></app-tipoeducacion-item>-->
+  
+    <p>Prubea de drag and cdkDropList</p>
+  
     <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
-      <div class="e-box" *ngFor="let educacion of educaciones" cdkDrag>
-        
-             <app-educacion-item
-          [educacion]="educacion"
-          
-          (onDeleteEducacion)="deleteEducacion(educacion)"
-        ></app-educacion-item>
-        
+      <div class="e-box" *ngFor="let tipoeducacion of tipoeducaciones" cdkDrag>
+        <app-tipoeducacion-item
+          [tipoeducacion]="tipoeducacion"
+          (onDeleteTipoEducacion)="deleteTipoEducacion(tipoeducacion)"
+        ></app-tipoeducacion-item>
       </div>
     </div>
   </div>
+  

@@ -1,0 +1,29 @@
+<p>educacion-item works!</p>
+
+<div
+  class="educacion"
+  [ngClass]="{ nombre: educacion.nombre }"
+  [ngStyle]="{ color: 'green' }"
+  (click)="onToggleEdu(educacion)"
+>
+  <h1>
+    <a href="#" class="btn-right" text="Editar" (click)="onEditEdu(educacion)"
+      ><i class="fas fa-pen"></i>
+    </a>
+    <br />
+
+    <fa-icon
+      [icon]="faTimes"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDeleteEdu()"
+    ></fa-icon>
+
+    <p>Nombre {{ educacion.nombre }}</p>
+  </h1>
+  <h2>Nivel {{ educacion.nivel }}</h2>
+  <h3>Institucion {{ educacion.institucion }}</h3>
+  <h3>Fecha Inicio: {{ educacion.fechaini }} - {{ educacion.fechaini }}</h3>
+  <h3>id: {{ educacion.id }}</h3>
+</div>
+<p>Fin educacion item</p>

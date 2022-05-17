@@ -47,6 +47,8 @@ form: FormGroup | undefined;
 
   onClick(){  this.btnClick.emit();}
   //Presionar el enter
+
+  
   onSubmit(event: Event){
     if(this.descripcion_proyecto.length===0){
       alert("Agregar una descripcion al proyecto"+this.persona.id);

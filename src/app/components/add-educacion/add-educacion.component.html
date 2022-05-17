@@ -1,0 +1,75 @@
+<p>add-educacion works!</p>
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+>
+  {{ mostrarForm ? "Cancelar" : "Agregar Educacion" }}
+</button>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+  <div class="mb-3">
+    <label class="form-label" for="enombre">Nombre del Titulo:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="einstitucion">Institucion:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="einstitucion"
+      placeholder="Nombre de la Institucion "
+      formControlName="institucion"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="enivel">Nivel:</label>
+    <input
+      class="form-control"
+      type="text"
+      formControlName="nivel"
+      id="enivel"
+      placeholder="Nivel de estudio "
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaini"
+      id="efechaini"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechafin"
+      id="efechafin"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Agregar Educacion
+  </button>
+</form>

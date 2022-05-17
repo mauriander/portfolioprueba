@@ -3,8 +3,8 @@ import { NgIf } from '@angular/common';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { EducacionService } from 'src/app/services/educacion.service'; 
 import { Educacion } from 'src/app/model/educacion.model';
-import { TipoeducacionService } from 'src/app/services/tipoeducacion.service';
-import { TipoEducacion } from 'src/app/model/tipoeducacion.model';
+
+
 
 @Component({
   selector: 'app-educacion',
@@ -13,9 +13,9 @@ import { TipoEducacion } from 'src/app/model/tipoeducacion.model';
 })
 export class EducacionComponent implements OnInit {
 
-  tipoeducaciones: TipoEducacion[]=[];
+  
   educaciones: Educacion[]=[];
-  constructor(private educacionService: EducacionService,private tipoeducacionService: TipoeducacionService) {}
+  constructor(private educacionService: EducacionService) {}
   @Output() btnClick= new EventEmitter;
 
   ngOnInit(): void {this.getEducaciones(); }
@@ -29,9 +29,12 @@ export class EducacionComponent implements OnInit {
   })
 }
 
+
+
+
   clickme() {
     alert("Entramos en edicion"); }
-
+/*
     addTipoEducacion(tipoeducacion: TipoEducacion) {
     
       this.tipoeducacionService
@@ -40,16 +43,24 @@ export class EducacionComponent implements OnInit {
   
       
     }
-
+*/
    
-  addEducacion(educacion: Educacion) {
-    
+  addEducacion(education: Educacion) {
+  
     this.educacionService
-      .addEducacion(educacion)
+      .addEducacion(education)
       .subscribe((addeducacion) => {this.educaciones.push(addeducacion);   this.ngOnInit();});
 
     
   }
+
+  
+
+
+  
+
+    
+
 
   drop2(event: CdkDragDrop<Educacion[]>) {
   

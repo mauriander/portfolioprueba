@@ -1,0 +1,77 @@
+<p>add-experience works!</p>
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+>
+  {{ mostrarForm ? "Cancelar" : "Agregar Experiencia" }}
+</button>
+
+
+  <form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+<div class="mb-3">
+    <label class="form-label" for="enombre">Nombre de la empresa:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="edescripcion">Puesto desempeñado</label>
+    <input
+      class="form-control"
+      type="text"
+      id="edescripcion"
+      placeholder="descripcion "
+      formControlName="descripcion"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaFin"
+      id="efechafin"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaIni"
+      id="efechaini"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="eactual">Trabajo Actual :</label>
+    <input
+      class="form-control"
+      type="number"
+      id="eactual"
+      placeholder="actual "
+      formControlName="actual"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Agregar Experiencia
+  </button>
+</form>

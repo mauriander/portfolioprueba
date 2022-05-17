@@ -1,0 +1,28 @@
+<p>experience-item works!</p>
+
+<div
+  class="experience"
+  [ngClass]="{ nombre: experiencia.nombre }"
+  [ngStyle]="{ color: 'green' }"
+  (click)="onToggleE(experiencia)"
+>
+  <h1>
+    <a href="#" class="btn-right" text="Editar" (click)="onEditE(experiencia)"
+      ><i class="fas fa-pen"></i>
+    </a>
+    <br />
+
+    <fa-icon
+      [icon]="faTimes"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDeleteE()"
+    ></fa-icon>
+    
+  </h1>
+  <p>{{ experiencia.nombre }}</p>
+  <h2>Puesto: {{ experiencia.descripcion }}</h2>
+  <h3>Fecha Inicio: {{ experiencia.fechaIni }} - {{ experiencia.fechaFin }}</h3>
+  <h3>Es trabajo actual: {{ experiencia.actual }}</h3>
+</div>
+<p>Fin experiencet</p>
