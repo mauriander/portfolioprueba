@@ -39,6 +39,14 @@
       formControlName="descripcion"
     />
   </div>
+  <div class="mb-3">
+    <label class="form-label" for="eactual">Trabajo Actual :</label>
+    <select class="form-control" id="eactual" type="text" formControlName="actual" placeholder="Es tu trabajo actual">
+      <option disabled selected> Seleciona una opcion</option>
+      <option >Actual</option>
+      <option >No es trabajo Actual</option>
+    </select>
+  </div>
 
   <div class="mb-3">
     <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
@@ -60,18 +68,10 @@
     />
   </div>
 
-  <div class="mb-3">
-    <label class="form-label" for="eactual">Trabajo Actual :</label>
-    <input
-      class="form-control"
-      type="number"
-      id="eactual"
-      placeholder="actual "
-      formControlName="actual"
-    />
-  </div>
+
 
   <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
     Agregar Experiencia
   </button>
 </form>
+

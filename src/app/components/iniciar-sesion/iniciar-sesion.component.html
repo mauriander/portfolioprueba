@@ -1,6 +1,38 @@
 <h1>Iniciar Session</h1>
 
 <form [formGroup]="form" class="m-5"  (ngSubmit)="onEnviar($event)">
+ <!-- 
+  <div>
+    <label for="email">Email: </label>
+    <input type="email" placeholder="Email" formControlName="email">
+</div>
+//Configuramos en el controlador
+<div *ngIf="Email?.errors  && Email?.touched">
+    <p *ngIf="Email?.hasError('required')" class="error">
+        El email es requerido.
+    </p>
+    <p *ngIf="Email?.hasError('email')" class="error">
+        El formato del email debe ser válido.
+    </p>
+</div>
+<div>
+    <label for="password" class="form-label">Password: </label>
+    <input type="password" placeholder="Password" formControlName="password">
+</div>
+// Configuramos en el controlador 
+<div *ngIf="Password?.errors  && Password?.touched">
+    <p *ngIf="Password?.hasError('required')" class="error">
+        El password es requerido.
+    </p>
+    <p *ngIf="Password?.errors?.['minlength']" class="error">
+        El password debe ser de 8 o más caracteres.
+    </p>
+</div>
+<div>
+    <button [disabled]="Password?.errors || Email?.errors" type="submit" id="submit" class="btn btn-primary">Iniciar Sesión
+    </button>
+</div>
+-->
   <div class="mb-3">
     <label for="exampleInputEmail1">Email address</label>
     <input
@@ -25,9 +57,9 @@
     <div *ngIf="Password?.errors && Password?.touched">
       <p *ngIf="Password?.hasError('required')" class="text-danger">   La constraseña es necesaria y debe ser mayor a 8 caracteres      </p>
     
-      <!--
-      <p *ngIf="Password?.errors?.minLength" class="text-danger">    La contraseña debe terner 8 caracteres</p>
-      -->
+     
+      
+    
     </div>
   </div>
 
@@ -39,8 +71,16 @@
       id="exampleCheck1"
     />
     <label class="form-check-label" for="exampleCheck1">Registrarme</label>
-  </div>
-
-  <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-
+  </div> 
+  <!--<button type="submit" class="btn btn-primary" (click)="login($event)">Login</button>-->
+  <button  type="submit" id="submit" class="btn btn-primary">Iniciar Sesión
+  </button>
 </form>
+
+<!-- </div>
+<div id="invitado" *ngIf="!isAdmin()">
+    <button class="btn btn-primary" (click)="irPortfolio()">Ingresar como invitado
+    </button>
+</div>
+<button type="submit" class="btn btn-primary" (click)="login($event)">Login</button>-->
+ <!-- <button type="submit" class="btn btn-primary" (click)="login2()">Login</button>-->

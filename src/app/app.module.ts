@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { AcercadeComponent } from './components/acercade/acercade.component';
@@ -31,6 +31,10 @@ import { TipoeducacionItemComponent } from './components/tipoeducacion-item/tipo
 import { AddTipoeducacionComponent } from './components/add-tipoeducacion/add-tipoeducacion.component';
 import { AddEducacionComponent } from './components/add-educacion/add-educacion.component';
 import { EducacionItemComponent } from './components/educacion-item/educacion-item.component';
+import { PortfolioService } from './services/portfolio.service';
+import { InterceptorService } from './services/interceptor.service';
+import { CookieService } from 'ngx-cookie-service';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -57,6 +61,7 @@ import { EducacionItemComponent } from './components/educacion-item/educacion-it
     AddTipoeducacionComponent,
     AddEducacionComponent,
     EducacionItemComponent,
+    
 
    
     
@@ -71,8 +76,9 @@ import { EducacionItemComponent } from './components/educacion-item/educacion-it
     ReactiveFormsModule, 
     FontAwesomeModule,DragDropModule,
     NgCircleProgressModule.forRoot({}),
+    NgbModule,
   ],
-  providers: [],
+  providers: [ NgbActiveModal,PortfolioService,{provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

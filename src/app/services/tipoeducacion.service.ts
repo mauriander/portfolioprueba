@@ -11,7 +11,7 @@ const httpOptions={
   providedIn: 'root'
 })
 export class TipoeducacionService {
-  private apiUrl='http://localhost:8080/';
+  private apiUrl="http://localhost:8080/";
 
 
   constructor(private http:HttpClient) { }

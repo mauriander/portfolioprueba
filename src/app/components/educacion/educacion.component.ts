@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { EducacionService } from 'src/app/services/educacion.service'; 
 import { Educacion } from 'src/app/model/educacion.model';
-
+import { AddSkillComponent } from '../add-skill/add-skill.component';
+import { AddEducacionComponent } from '../add-educacion/add-educacion.component';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Educacion } from 'src/app/model/educacion.model';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
-
+  //@ViewChild("addEducacion") addEducacio!: AddEducacionComponent;
   
   educaciones: Educacion[]=[];
   constructor(private educacionService: EducacionService) {}
@@ -29,9 +30,6 @@ export class EducacionComponent implements OnInit {
   })
 }
 
-
-
-
   clickme() {
     alert("Entramos en edicion"); }
 /*
@@ -46,21 +44,27 @@ export class EducacionComponent implements OnInit {
 */
    
   addEducacion(education: Educacion) {
-  
-    this.educacionService
+    
+      this.educacionService
       .addEducacion(education)
       .subscribe((addeducacion) => {this.educaciones.push(addeducacion);   this.ngOnInit();});
 
     
   }
-
   
-
-
-  
-
+  editEducacion(education: Educacion) {
+ /* alert("Editicion en componente");
+  this.educacionService.editEducacion(education).subscribe((educacionEditada) => {
+    this.buscaEdu(educacionEditada);
+  });  */
+  alert("Hize push qui"+education.nombre);
+  this.educacionService
+     .editEducacion(education)
+    .subscribe((editeducacion) => {this.educaciones.push(editeducacion);   this.ngOnInit();});
     
-
+   // this.addEducacion.setEducacion(education);
+  }
+ 
 
   drop2(event: CdkDragDrop<Educacion[]>) {
   
@@ -75,5 +79,15 @@ export class EducacionComponent implements OnInit {
         }))
     );
   }
+/*
+  private buscaEdu(educacion: Educacion) {
+		for (let index = 0; index < this.educaciones.length; index++) {
+			if (this.educaciones[index].id === educacion.id) {
+				this.educaciones[index] = educacion;
+
+				break;
+			}
+		}
+	}*/
 
 }

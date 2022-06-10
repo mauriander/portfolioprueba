@@ -9,7 +9,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class SkillComponent implements OnInit {
 
-  @Input() skill!:Skill;
+ // @Input() skill!:Skill;
 
   skills: Skill[]=[];
 
@@ -30,7 +30,7 @@ drop(event: CdkDragDrop<Skill[]>) {
   
   moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
 }
-
+/*
 private actualizarSkill(skill: Skill) {
   for (let index = 0; index < this.skills.length; index++) {
     if (this.skills[index].id === skill.id) {
@@ -38,7 +38,7 @@ private actualizarSkill(skill: Skill) {
       break;
     }
   }
-}
+}*/
 
 
 nuevaSkill(skill: Skill){

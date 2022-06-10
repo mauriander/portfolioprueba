@@ -21,7 +21,11 @@
       *ngFor="let tipoeducacion of projects"
       [tipoeducacion]="tipoeducacion"
       (onDeleteProject)="deleteProject(tipoeducacion)"
-    ></app-tipoeducacion-item> -->
+    ></app-tipoeducacion-item> 
+  
+  
+    (onEditarEducacion)="editEducacion(educacion)"
+  -->
    
     
     
@@ -30,7 +34,8 @@
         
              <app-educacion-item
           [educacion]="educacion"
-          
+           
+          (onEditarEducacion)="editEducacion($event)"
           (onDeleteEducacion)="deleteEducacion(educacion)"
         ></app-educacion-item>
         

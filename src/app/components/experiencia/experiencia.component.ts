@@ -42,6 +42,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   deleteExperience(experience: Experiencia) {
+    alert("deleteado2");
     this.experienceService.deleteExperience(experience).subscribe(
       () =>
         (this.experiences = this.experiences.filter((t) => {

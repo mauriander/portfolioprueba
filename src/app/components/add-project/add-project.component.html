@@ -1,55 +1,71 @@
 <p>add-project works!</p>
 <button
-		class="btn btn-primary"
-	(click)="toogleForm()"
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
 >
-	{{ mostrarForm ? "Cancelar" : "Agregar Proyecto" }}
+  {{ mostrarForm ? "Cancelar" : "Agregar Proyecto" }}
 </button>
-<form class="add-form" (ngSubmit)="onSubmit($event)" *ngIf="mostrarForm">
-  <div class="form-control">
-    <label for="text">Nombre</label>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+  <div class="mb-3">
+    <label class="form-label" for="enombre">Nombre deL proyecto:</label>
     <input
+      class="form-control"
       type="text"
-      name="nombre"
-      id="nombre"
-      placeholder="nombre"
-      [(ngModel)]="nombre"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="edescripcion"
+      >Descripcion del proyecto</label
+    >
+    <input
+      class="form-control"
+      type="text"
+      id="edescripcion"
+      placeholder="descripcion_proyecto"
+      formControlName="descripcion_proyecto"
     />
   </div>
 
-  <div class="form-control">
-    <label for="text">url</label>
+  <div class="mb-3">
+    <label class="form-label" for="eurl">Url del proyecto: </label>
     <input
+      class="form-control"
       type="text"
-      name="nombre"
-      id="url"
-      placeholder="url"
-      [(ngModel)]="url"
+      id="eurl"
+      placeholder="url del proyecto"
+      formControlName="url"
     />
   </div>
 
-  
-  <div class="form-control">
-    <label for="text">Descripcion</label>
+  <div class="mb-3">
+    <label class="form-label" for="etipo_tecnologia"
+      >Tipo de tecnologias utilizadas:
+    </label>
     <input
+      class="form-control"
       type="text"
-      name="Descripcion"
-      id="Descripcion"
-      placeholder="Descripcion"
-      [(ngModel)]="descripcion_proyecto"
+      id="etipo_tecnologia"
+      placeholder="tipo_tecnologia utilizadas"
+      formControlName="tipo_tecnologia"
     />
   </div>
 
-  <div class="form-control">
-  <label for="text">tipo_tecnologia</label>
-  <input
-    type="text"
-    name="tipo_tecnologia"
-    id="tipo_tecnologia"
-    placeholder="tipo_tecnologia"
-    [(ngModel)]="tipo_tecnologia"
-  />
-</div>
-
-  <input type="submit" value="Agregar Proyecto" class="btn btn-block" />
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Agregar Proyecto
+  </button>
 </form>

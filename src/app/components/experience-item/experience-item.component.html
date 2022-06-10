@@ -6,18 +6,21 @@
   [ngStyle]="{ color: 'green' }"
   (click)="onToggleE(experiencia)"
 >
-  <h1>
-    <a href="#" class="btn-right" text="Editar" (click)="onEditE(experiencia)"
-      ><i class="fas fa-pen"></i>
-    </a>
-    <br />
+<h1>
+  <a href="#" class="btn-right" text="Editar" (click)="onDeleteEd()"
+    ><i class="fas fa-pen"></i>
+  </a>
+  <br />
 
-    <fa-icon
-      [icon]="faTimes"
-      [ngStyle]="{ color: 'red' }"
-      text="Eliminar"
-      (click)="onDeleteE()"
-    ></fa-icon>
+<fa-icon
+    [icon]="faTimes"
+    [ngStyle]="{ color: 'red' }"
+    text="Eliminar"
+    (click)="onDeleteEd()"
+    
+  ></fa-icon>
+
+    
     
   </h1>
   <p>{{ experiencia.nombre }}</p>

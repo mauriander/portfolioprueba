@@ -14,18 +14,25 @@ export class ExperienceItemComponent implements OnInit {
   
   @Output() onToggleExperience: EventEmitter<Experiencia> = new EventEmitter();
   @Output() onEditExperience: EventEmitter<Experiencia> = new EventEmitter();
+
   faTimes=faTimes;
   constructor() { }
+
 
   ngOnInit(): void {
   }
 
-  
+  /*
   onDeleteE():void{
-    //alert("deleteado"+project.text);
+    alert("deleteado experiencia");
     this.onDeleteExperience.emit(this.experiencia);
-    
+  
+  }
+*/
 
+  onDeleteEd():void{
+    alert("deleteado presiono boton de emision");
+    this.onDeleteExperience.emit(this.experiencia);
 
   }
 

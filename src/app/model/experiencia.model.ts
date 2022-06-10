@@ -5,7 +5,7 @@ export interface Experiencia{
     descripcion:string,
     fechaIni:Date, 
     fechaFin:Date, 
-    actual:number, 
+    actual:string, 
    
     
     

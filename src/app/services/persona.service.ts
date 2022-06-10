@@ -9,12 +9,12 @@ import { faArrowsLeftRightToLine } from '@fortawesome/free-solid-svg-icons';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL="http://localhost:8080/persona/9";
+  URL='http://localhost:8080/persona/9';
 
   constructor(private http: HttpClient) { }
 
   getPersona():Observable<Persona>{
-    //alert(this.http.get<Persona>(this.URL));
+    console.log("pERSONA"+ this.URL)
 
     return this.http.get<Persona>(this.URL);
      

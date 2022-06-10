@@ -1,4 +1,5 @@
 <p>add-skill works!</p>
+<!--
 <button
 		class="btn btn-primary"
 	(click)="toogleForm()"
@@ -32,56 +33,70 @@
 	  />
 	</div>
 	<input type="submit" value="Agregar Skill" class="btn btn-block" />
-	<!--<input type="submit" value="Agregar Skill" class="btn btn-block"[disabled]="validForm" />
-	-->
+	<input type="submit" value="Agregar Skill" class="btn btn-block"[disabled]="validForm" />
+	
 </form>
 
+-->
 
 
 
 
-
-<!--
-
-<form
-	#formSkill
-	
-	(ngSubmit)="onSubmit($event)"
-	*ngIf="mostrarForm"
-	class="m-3 mt-5"
->
-	<div class="mb-3">
-		<label class="form-label" for="nombre">Nombre:</label>
-		<input
+<ng-template #content let-modal>
+	<div class="modal-header">
+	  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+	  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+	  <form [formGroup]="form"  (ngSubmit)="onSubmit($event)" >
+		  <div class="mb-3">
+		  <label class="form-label" for="enombre">Nombre de Skill:</label>
+		  <input
 			class="form-control"
 			type="text"
+			id="enombre"
+			placeholder="Nombre "
 			formControlName="nombre"
-			id="nombre"
-			placeholder="Nombre de la skill"
-			ngbTooltip="Entre 3 y 10 caracteres"
-			[(ngModel)]="nombre"
-		/>
-	</div>
-	<div class="mb-3">
-		<label class="form-label" for="nivel">Nivel:</label>
-		<input
+		  />
+		</div>
+	  
+		<div class="mb-3">
+		  <label class="form-label" for="evalor">Valor de skill:</label>
+		  <input
 			class="form-control"
 			type="number"
-			formControlName="nivel"
-			id="valor"
-			placeholder="Nivel de la skill"
-			ngbTooltip="Valor entre 1 y 100"
-			[(ngModel)]="valor"
-		/>
+			id="evalor"
+			placeholder="Valor de Skill"
+			formControlName="valor"
+		  />
+		</div>
+  
+	  
+	
+	  <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="modal.close()">
+		Agregar Skill
+	  </button>
+	  </form>
 	</div>
-
-		
-
+	<div class="modal-footer">
 	
-	
-	<button type="submit" class="btn btn-primary"[disabled]="form.invalid">
-		
-	<button type="submit" class="btn btn-primary" >
-		Nueva skill
-	</button>
-</form>-->
+	  <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+	</div>
+  </ng-template>
+  <button
+[ngClass]="{
+  btn: true,
+  'btn-right': true
+}"
+  (click)="toogleForm()"
+  (click)="open(content)"	
+  >
+  Agregar Educacion MODAL
+  </button>
+   <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
+  
+

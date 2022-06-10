@@ -99,6 +99,15 @@
   }
   
   .e-box {
+
+    background-color: rgb(211, 218, 157);
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    border-radius: 32px;
+    margin: 20px 20px;
+
     padding: 20px 10px;
     border-right: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
@@ -110,7 +119,7 @@
 
     box-sizing: border-box;
     cursor: move;
-    background: white;
+    background: rgb(255, 255, 255);
     font-size: 14px;
     
     flex-basis: 0;

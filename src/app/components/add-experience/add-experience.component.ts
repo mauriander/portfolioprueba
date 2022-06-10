@@ -35,21 +35,21 @@ export class AddExperienceComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private servicio: PersonaService) { 
-    this.getPersona();
+    
     this.form=this.formBuilder.group({
       id:[0],
       nombre:[""],
       descripcion:["", [Validators.required, Validators.min(1), Validators.max(100)]],
       fechaIni:[""],
       fechaFin:[""],
-      actual:[0],
+      actual:[""],
       persona:{id:0}
         });
     }
 
 
     ngOnInit(): void {}
-
+/*
     getPersona(){
       this.servicio.getPersona().subscribe(res=>{
         console.log(res); 
@@ -57,7 +57,8 @@ export class AddExperienceComponent implements OnInit {
       })
     
     }
-  
+  */
+
 /*
   getPersona(){
     this.servicio.getPersona().subscribe(res=>{
@@ -89,7 +90,7 @@ export class AddExperienceComponent implements OnInit {
 
     onSubmit(event:Event){
       this.form.patchValue({
-        persona:{id:this.persona.id}
+        persona:{id:this.persona.id,}
       });
    
      event.preventDefault;

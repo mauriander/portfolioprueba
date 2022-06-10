@@ -2,23 +2,123 @@
 
 <div
   class="educacion"
-  [ngClass]="{ nombre: educacion.nombre }"
-  [ngStyle]="{ color: 'green' }"
+ 
   (click)="onToggleEdu(educacion)"
 >
-  <h1>
-    <a href="#" class="btn-right" text="Editar" (click)="onEditEdu(educacion)"
-      ><i class="fas fa-pen"></i>
-    </a>
-    <br />
+  
+    <!--  <fa-icon
+    [icon]="faTimes"
+    [ngStyle]="{ color: 'blue' }"
+   text="Editar"
+    (click)="onEditEdu(educacion)"
+-->
 
-    <fa-icon
-      [icon]="faTimes"
-      [ngStyle]="{ color: 'red' }"
-      text="Eliminar"
-      (click)="onDeleteEdu()"
-    ></fa-icon>
+<fa-icon
+[icon]="faTimes"
+[ngStyle]="{ color: 'red' }"
+text="Eliminar"
+(click)="onDeleteEdu()"
+></fa-icon>
 
+   <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+          <div class="mb-3">
+            <label class="form-label" for="enombre">Nombre del Titulo:</label>
+            <input
+              class="form-control"
+              type="text"
+              id="enombre"
+              formControlName="nombre"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="einstitucion">Institucion:</label>
+            <input
+              class="form-control"
+              type="text"
+              id="einstitucion"
+              formControlName="institucion"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="enivel">Nivel:</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="nivel"
+              id="enivel"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+            <input
+              class="form-control"
+              type="date"
+              formControlName="fechaini"
+              id="efechaini"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="efechafin"
+              >Fecha de finalizacion:
+            </label>
+            <input
+              class="form-control"
+              type="date"
+              formControlName="fechafin"
+              id="efechafin"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            
+            (click)="modal.close()"
+          >
+            Editar Educacion
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+      </div>
+    </ng-template>
+
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="open(content)"
+    >
+    <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+    </button>
+    <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+    
+
+    <pre>{{ closeResult }}</pre>
+
+    <!-- ></fa-icon>-->
+    <!--
+  <app-edit-educacion (onEditEdu)="editEducacion($event)"></app-edit-educacion>    -->
+    
+
+<h1>
     <p>Nombre {{ educacion.nombre }}</p>
   </h1>
   <h2>Nivel {{ educacion.nivel }}</h2>
@@ -26,4 +126,6 @@
   <h3>Fecha Inicio: {{ educacion.fechaini }} - {{ educacion.fechaini }}</h3>
   <h3>id: {{ educacion.id }}</h3>
 </div>
+<br />
+<hr />
 <p>Fin educacion item</p>
