@@ -15,7 +15,7 @@
   }
 
   .e-box {
-    background-color: rgb(151, 184, 149);
+    background-color: rgb(42, 104, 133);
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
@@ -25,7 +25,7 @@
    
   
     border: solid 1px #ccc;
-    color: rgba(50, 97, 89, 0.87);
+    color: rgb(42, 104, 133);
     cursor: move;
     display: flex;
     justify-content: center;
@@ -55,7 +55,31 @@
     border: solid 1px #ccc;
     min-height: 60px;
     display: block;
-    background: rgb(148, 189, 110);
+    background-color: rgb(42, 104, 133);
     border-radius: 4px;
     overflow: hidden;
+  }
+
+  h2{
+    padding-left: 32px;
+    font-size: xx-large;    
+    animation: flow 10s ease-in-out infinite;
+    background: -webkit-linear-gradient(-60deg, #904e95,#941a9c,#e73c7e,#ee7752);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+
+  @keyframes flow{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
   }

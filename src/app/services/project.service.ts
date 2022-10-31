@@ -13,14 +13,14 @@ const httpOptions={
 })
 export class ProjectService {
 //private apiUrl='http://localhost:5000/projects/';
-private apiUrl="http://localhost:8080/";
+private apiUrl="https://backendargprogprueba.herokuapp.com/";
 
-
+URL="https://backendargprogprueba.herokuapp.com/";
   constructor(private http:HttpClient) { }
 
 
   getProjects():Observable<Proyecto[]>{
-     return this.http.get<Proyecto[]>(this.apiUrl+"ver/proyectos");
+     return this.http.get<Proyecto[]>(this.URL+"ver/proyectos");
   }
 
   addProject(project: Proyecto):Observable<Proyecto> {
@@ -33,4 +33,12 @@ private apiUrl="http://localhost:8080/";
       return this.http.delete<Proyecto>(url);
 
     }
+
+    editProject(project: Proyecto):Observable<Proyecto> {
+      alert("Llego a servicio de editar proyecto"+ project.id + "y su nombre "+project.nombre);
+  const y=project.id;
+    return this.http.put<Proyecto>(this.URL+"editar/proyecto/"+y,project,httpOptions);}
+
+    
+  
 }

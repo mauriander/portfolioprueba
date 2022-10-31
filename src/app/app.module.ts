@@ -35,6 +35,12 @@ import { PortfolioService } from './services/portfolio.service';
 import { InterceptorService } from './services/interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './components/login/login.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProvinciaItemComponent } from './components/provincia-item/provincia-item.component';
+import { LocalidadItemComponent } from './components/localidad-item/localidad-item.component';
+import { AcercadeItemComponent } from './components/acercade-item/acercade-item.component';
+
 
 
 
@@ -61,6 +67,11 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddTipoeducacionComponent,
     AddEducacionComponent,
     EducacionItemComponent,
+    LoginComponent,
+    ContactComponent,
+    ProvinciaItemComponent,
+    LocalidadItemComponent,
+    AcercadeItemComponent,
     
 
    

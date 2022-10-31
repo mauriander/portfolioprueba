@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { PROJECTS } from '../mock-projects';
 import { Project } from '../Project';
 import { ProjectService } from 'src/app/services/project.service';
@@ -20,6 +20,8 @@ export class ProjectsComponent implements OnInit {
   projects: Proyecto[]=[];
   constructor(private projectService: ProjectService) {}
   @Output() btnClick= new EventEmitter;
+  @Input()onSession!:boolean;
+  onSessionpro!:boolean;
 
   ngOnInit(): void {this.getProjects(); }
 
@@ -31,9 +33,13 @@ export class ProjectsComponent implements OnInit {
 
   })
 }
-
-  clickme() {
-    alert("Entramos en edicion"); }
+clickme():void {
+  //alert("Entramos en edicion"); 
+ if(this.onSessionpro===true)
+ {this.onSessionpro=false;}
+ else{this.onSessionpro=true;}
+ 
+ }
   /*
 ToggleReminder(task: Task) {
   task.reminder = !task.reminder;
@@ -67,4 +73,14 @@ this.skillSevice
         }))
     );
   }
+
+  editProject(proyecto: Proyecto) {
+    alert("Hize push qui"+proyecto.nombre);
+  this.projectService
+     .editProject(proyecto)
+    .subscribe((editproyecto) => {this.projects.push(editproyecto);   });
+    
+ 
+  }
+
 }

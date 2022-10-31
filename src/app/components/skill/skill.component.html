@@ -1,32 +1,70 @@
 <p>skill works!</p>
 
+<h2>Skills</h2>
 <div class="card mat-card">
   <div id="Titulos"></div>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <div class="card-titles">
+      <div *ngIf="onSession">
+        <div *ngIf="onSessionski">
+          <button
+            [ngClass]="{
+              btn: true,
+              'btn-right': true
+            }"
+            class="btn btn-primary"
+            (click)="clickme()"
+          >
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+        <div *ngIf="!onSessionski">
+          <button class="btn btn-primary" (click)="clickme()">
+            <i class="fa fa-pen"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--
     <button type="button" class="btn btn-light">Añadir Skill</button>
     <button type="button" class="btn btn-light">
       Hacer un test de mis habilidades
     </button>
-    <div class="btn-edit">
-      <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+    -->
+
+    <!-- <button (click)="clickme()"
+       >
+       <i class="fa fa-pen"></i>
+       </button>
+ 
+  
+       <div class="btn-edit" (click)="clickme()">
+         -->
+
+    <div *ngIf="onSessionski">
+      <app-add-skill (onAddSkill)="nuevaSkill($event)"></app-add-skill>
     </div>
 
-    <app-add-skill (onAddSkill)="nuevaSkill($event)"></app-add-skill>
-    
-    
-    <div cdkDropList cdkDropListOrientation="horizontal" class="e-list" (cdkDropListDropped)="drop($event)">
-      <div class="e-box" *ngFor="let skill of skills" cdkDrag>
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      class="e-list"
+      (cdkDropListDropped)="drop($event)"
+      
+    >
+      <div class="e-box" *ngFor="let skill of skills" cdkDrag >
         <app-skill-item
           [skill]="skill"
+          (onEditarSkill)="editarSkill($event)"
           (onDeleteSkill)="borrarSkill(skill)"
+          [onSessionski]="onSessionski"
         ></app-skill-item>
       </div>
     </div>
 
-
-<!--
+    <!--
 
     <article id="s4" class="circle">
       <circle-progress

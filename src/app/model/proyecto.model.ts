@@ -1,8 +1,8 @@
 export interface Proyecto{
     id?: number,
     nombre: string,
-    descripcion_proyecto:string,
-    tipo_tecnologia: string, 
+    descripcion:string,
+    tipotec: string, 
     url:string
     
     }

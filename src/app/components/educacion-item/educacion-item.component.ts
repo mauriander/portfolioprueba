@@ -12,9 +12,12 @@ import { EducacionService } from 'src/app/services/educacion.service';
   styleUrls: ['./educacion-item.component.css']
 })
 export class EducacionItemComponent implements OnInit {
-
+  @Input()onSessionedu!:boolean;
   
   @Input() educacion!: Educacion;
+
+  @Input() botonactua!: String;
+  
   @Output() onDeleteEducacion: EventEmitter<Educacion> = new EventEmitter();
   
   @Output() onToggleEducacion: EventEmitter<Educacion> = new EventEmitter();
@@ -37,6 +40,7 @@ export class EducacionItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("Educacion")
   
   }
 

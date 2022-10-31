@@ -10,11 +10,13 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class SkillComponent implements OnInit {
 
  // @Input() skill!:Skill;
-
+ //@Input()onSession!:boolean;
   skills: Skill[]=[];
 
   constructor(private skillService: SkillService) {}
   @Output() btnClick= new EventEmitter;
+  @Input()onSession!:boolean;
+  onSessionski!:boolean;
 
   ngOnInit(): void {this.verSkills(); }
 
@@ -25,6 +27,19 @@ export class SkillComponent implements OnInit {
       this.skills=res;
 
   })
+}
+
+
+clickme():void{
+  alert("Entramos en edicion"); 
+ if(this.onSessionski===true)
+ {this.onSessionski=false;}
+ else{this.onSessionski=true;}
+  
+  //console.log('Redirigir despues del click1');
+  //this.ngOnInit();
+ // console.log('Redirigir despues del click2');
+  
 }
 drop(event: CdkDragDrop<Skill[]>) {
   
@@ -59,9 +74,21 @@ borrarSkill(skill: Skill) {
       (this.skills = this.skills.filter((t) => {
         return t.id !== skill.id;
       }))
-  );
-  
+       );
+      
 }
+editarSkill(skill: Skill) {
+  /* alert("Editicion en componente");
+   this.educacionService.editEducacion(education).subscribe((educacionEditada) => {
+     this.buscaEdu(educacionEditada);
+   });  */
+   alert("Hize push qui"+skill.nombre);
+   this.skillService
+      .editarSkill(skill)
+     .subscribe((editskill) => {this.skills.push(editskill);   });
+     
+    // this.addEducacion.setEducacion(education);
+   }
 
 
 }

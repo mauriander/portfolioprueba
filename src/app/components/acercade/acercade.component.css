@@ -17,3 +17,20 @@
     cursor: inherit;
     display: block;
 }
+.imagen-row{
+
+    content: "";
+    display: table;
+    clear: both;
+}
+.imagen-col{
+    float: left;
+  width: 33.33%;
+}
+.profile-image{
+    opacity: 50;
+    outline: none;
+    background: white;
+    cursor: inherit;
+}
+

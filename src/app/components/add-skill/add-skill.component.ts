@@ -66,7 +66,7 @@ submitted = false;
 
     getPersona(){
       this.servicio.getPersona().subscribe(res=>{
-        console.log(res); 
+       // console.log(res); 
         this.persona=res;
         this.ide=res.id;
       })
@@ -89,7 +89,7 @@ submitted = false;
   
       onSubmit(event:Event){
         this.submitted=true;
-this.form.patchValue({persona:{id:this.ide,localidad:{id:6}}});
+this.form.patchValue({persona:{id:this.ide}});
        
         console.log(this.form.value);
         //this.form.patchValue({id:this.id});

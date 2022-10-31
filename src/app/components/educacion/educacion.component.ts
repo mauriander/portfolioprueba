@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { EducacionService } from 'src/app/services/educacion.service'; 
 import { Educacion } from 'src/app/model/educacion.model';
 import { AddSkillComponent } from '../add-skill/add-skill.component';
 import { AddEducacionComponent } from '../add-educacion/add-educacion.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,12 +15,13 @@ import { AddEducacionComponent } from '../add-educacion/add-educacion.component'
 })
 export class EducacionComponent implements OnInit {
   //@ViewChild("addEducacion") addEducacio!: AddEducacionComponent;
-  
+  @Input()onSession!:boolean;
+  onSessionedu!:boolean;
   educaciones: Educacion[]=[];
-  constructor(private educacionService: EducacionService) {}
+  constructor(private educacionService: EducacionService,private ruta:Router) {}
   @Output() btnClick= new EventEmitter;
 
-  ngOnInit(): void {this.getEducaciones(); }
+  ngOnInit(): void {this.getEducaciones(); this.onSessionedu=false; }
 
   getEducaciones(){
   this.educacionService
@@ -30,8 +32,17 @@ export class EducacionComponent implements OnInit {
   })
 }
 
-  clickme() {
-    alert("Entramos en edicion"); }
+  clickme():void{
+    alert("Entramos en edicion"); 
+   if(this.onSessionedu===true)
+   {this.onSessionedu=false;}
+   else{this.onSessionedu=true;}
+    
+    //console.log('Redirigir despues del click1');
+    //this.ngOnInit();
+   // console.log('Redirigir despues del click2');
+    
+  }
 /*
     addTipoEducacion(tipoeducacion: TipoEducacion) {
     
@@ -60,7 +71,7 @@ export class EducacionComponent implements OnInit {
   alert("Hize push qui"+education.nombre);
   this.educacionService
      .editEducacion(education)
-    .subscribe((editeducacion) => {this.educaciones.push(editeducacion);   this.ngOnInit();});
+    .subscribe((editeducacion) => {this.educaciones.push(editeducacion);  });
     
    // this.addEducacion.setEducacion(education);
   }

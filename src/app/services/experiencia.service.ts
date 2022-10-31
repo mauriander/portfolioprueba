@@ -2,8 +2,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { from, Observable, of } from 'rxjs';
-
-import { Project } from '../components/Project';
 import { Experiencia } from '../model/experiencia.model';
 
 const httpOptions={
@@ -16,7 +14,7 @@ const httpOptions={
 })
 
 export class ExperienciaService {
-  private apiUrl="http://localhost:8080/";
+  private apiUrl="https://backendargprogprueba.herokuapp.com/";
 
 
   constructor(private http:HttpClient) { }
@@ -36,5 +34,9 @@ export class ExperienciaService {
       return this.http.delete<Experiencia>(url);
 
     }
+    editExperience(experiencia: Experiencia):Observable<Experiencia> {
+      alert("Llego a servicio de editar educacion"+ experiencia.id + "y su trabjo es  "+experiencia.actual);
+  const y=experiencia.id;
+    return this.http.put<Experiencia>(this.apiUrl+"editar/experiencia/"+y,experiencia);}
 
 }

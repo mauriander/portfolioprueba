@@ -6,6 +6,9 @@ export interface Experiencia{
     fechaIni:Date, 
     fechaFin:Date, 
     actual:string, 
+    persona: Persona,
+
+    
    
     
     

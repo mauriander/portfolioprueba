@@ -11,7 +11,7 @@ import { TipoEducacion } from 'src/app/model/tipoeducacion.model';
   styleUrls: ['./tipoeducacion.component.css']
 })
 export class TipoeducacionComponent implements OnInit {
-
+  
   tipoeducaciones: TipoEducacion[]=[];
   constructor(private tipoeducacionService: TipoeducacionService) {}
   @Output() btnClick= new EventEmitter;

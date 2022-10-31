@@ -1,20 +1,118 @@
 <p>project-item works!</p>
 
-<div  class="project"
-[ngClass]="{nombre :project.nombre}"
-[ngStyle]="{'color' : 'green'}"
-(click)="onToggle(project)">
-<h1><a href="#" class="btn-right" text ="Editar" (click)="onEdit(project)"><i class="fas fa-pen"></i>        </a>
-    <br>
+<div
+  class="project"
+  [ngClass]="{ nombre: project.nombre }"
+  [ngStyle]="{ color: 'white' }"
+  (click)="onToggle(project)"
+>
+  <h1>
+  <div *ngIf="onSessionpro">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDelete()"
+    >
+      <a> <i class="fa fa-times"></i></a>
+    </button>
+  </div>
 
-<fa-icon [icon]="faTimes" [ngStyle]="{'color' : 'red'}" text="Eliminar" (click)="onDelete()"   ></fa-icon><p>{{project.nombre}}</p>
-</h1>
-<h3>Codigo de proyecto: {{project.id}}</h3>
-<h3>Descripcion: {{project.descripcion_proyecto}}</h3>
-<h3>Tecnologias Utilizadas: {{project.tipo_tecnologia}}</h3>
-<h3>Url de proyecto: {{project.url}}</h3>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label class="form-label" for="enombre">Nombre deL proyecto:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="enombre"
+            placeholder="Nombre "
+            formControlName="nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="edescripcion"
+            >Descripcion del proyecto</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            id="edescripcion"
+            placeholder="descripcion_proyecto"
+            formControlName="descripcion"
+          />
+        </div>
 
+        <div class="mb-3">
+          <label class="form-label" for="eurl">Url del proyecto: </label>
+          <input
+            class="form-control"
+            type="text"
+            id="eurl"
+            placeholder="url del proyecto"
+            formControlName="url"
+          />
+        </div>
 
+        <div class="mb-3">
+          <label class="form-label" for="etipo_tecnologia"
+            >Tipo de tecnologias utilizadas:
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            id="etipo_tecnologia"
+            placeholder="tipo_tecnologia utilizadas"
+            formControlName="tipotec"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="modal.close()">
+          Editar Proyecto
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+    </div>
+  </ng-template>
+  <div *ngIf="onSessionpro">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="open(content)"
+    >
+      <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+    </button>
+    <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+  </div>
 
+  <pre>{{ closeResult }}</pre>
+
+    
+  </h1>
+  <P>{{ nombre }}</P>
+   <!--
+  <h3>Codigo de proyecto: {{ project.id }}</h3>-->
+  <h3>Descripcion: {{ descripcion }}</h3>
+  <h2>{{ descripcion }}</h2>
+  <h3>Tecnologias Utilizadas: {{ tipotec }}</h3>
+  <h3>Url de proyecto: {{ url }}</h3>
 </div>
 <p>Fin project</p>
