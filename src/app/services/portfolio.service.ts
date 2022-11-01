@@ -6,7 +6,8 @@ import { Observable, ObservedValueOf } from 'rxjs';
   providedIn: 'root'
 })
 export class PortfolioService {
-  url="https://backendargprogprueba.herokuapp.com/persona/9";
+   private apiUrl='https://backendargprogprueba.herokuapp.com/persona/9';
+  //private apiUrl='http://localhost:8080/persona/9';
   constructor(private http:HttpClient) { }
 
 /*
@@ -19,7 +20,7 @@ return this.http.get<any>(this.url+"persona")
    // console.log(this.url);
 
     //return this.http.get("./assets/data/data.json");
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.apiUrl);
     
       }
 }

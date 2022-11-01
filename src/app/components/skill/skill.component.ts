@@ -85,7 +85,7 @@ editarSkill(skill: Skill) {
    alert("Hize push qui"+skill.nombre);
    this.skillService
       .editarSkill(skill)
-     .subscribe((editskill) => {this.skills.push(editskill);   });
+     .subscribe((editskill) => {this.skills.push(editskill);  this.ngOnInit(); });
      
     // this.addEducacion.setEducacion(education);
    }

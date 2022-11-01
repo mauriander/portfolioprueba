@@ -7,8 +7,7 @@ import { PersonaEducacion } from '../model/personaeducacion.model';
   providedIn: 'root'
 })
 export class PersonaeducacionService {
-  private apiUrl="http://localhost:8080/";
-
+  private apiUrl='https://backendargprogprueba.herokuapp.com/';
 
   constructor(private http:HttpClient) { }
 

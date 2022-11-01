@@ -7,8 +7,10 @@ import { formMail } from '../model/formMail';
   providedIn: 'root'
 })
 export class ContactoService {
-  //private apiURL = 'https://api-portfolio-maxivr.herokuapp.com/persona/sendMail'
-  private apiURL = ''
+  
+ // private apiURL = ''
+  //private apiURL ='http://localhost:8080/';
+  private apiUrl='https://backendargprogprueba.herokuapp.com/';
 
   constructor(private http:HttpClient) { }
 
@@ -17,6 +19,6 @@ export class ContactoService {
     let json =  JSON.stringify(mail);
     console.log(json);
    // return this.http.post<any>(this.apiURL, json, httpOption);
-   return this.http.post<any>(this.apiURL, json);
+   return this.http.post<any>(this.apiUrl, json);
   }
 }

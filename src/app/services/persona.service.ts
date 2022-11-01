@@ -12,11 +12,11 @@ const httpOptions={
   providedIn: 'root'
 })
 export class PersonaService {
-  //URL='http://localhost:8080/persona/9';
-  URL="https://backendargprogprueba.herokuapp.com/persona/9";
-  URL2='http://localhost:8080/';
+//  URL='http://localhost:8080/persona/9';
+  URL='https://backendargprogprueba.herokuapp.com/persona/9';
+  
+  URL2='https://backendargprogprueba.herokuapp.com/';
 
- // URL='http://localhost:4200/persona/9';
   constructor(private http: HttpClient) { }
 
   getPersona():Observable<Persona>{

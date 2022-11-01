@@ -1,5 +1,4 @@
 <p>educacion-item works!</p>
- 
 
 <div
   class="educacion"
@@ -26,16 +25,14 @@
       <a> <i class="fa fa-times"></i></a>
     </button>
   </div>
-  <h1>
-    Nombre {{ educacion.nombre }}
-  </h1>
+  <div>
+    <h1>Nombre {{ educacion?.nombre }}</h1>
 
-  <h2>Nivel {{ educacion.nivel }}</h2>
-  
-  <h3>Institucion {{ educacion.institucion }}</h3>
-  <h3>Fecha Inicio: {{ educacion.fechaini }} - {{ educacion.fechaini }}</h3>
-  <h3>id: {{ educacion.id }}</h3>
+    <h2>Nivel {{ educacion?.nivel }}</h2>
 
+    <h3>Institucion {{ educacion?.institucion }}</h3>
+    <h3>Fecha Inicio: {{ educacion?.fechaini }} - {{ educacion?.fechafin }}</h3>
+  </div>
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Profile update</h4>

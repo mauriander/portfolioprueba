@@ -10,8 +10,10 @@ import { JwtDto } from '../model/jwt-dto';
   providedIn: 'root'
 })
 export class AuthService {
-  private URL ='http://localhost:8080';
+  //private URL ='http://localhost:8080';
+  //private URL ="https://backendargprogprueba.herokuapp.com"
   private authURL ='https://backendargprogprueba.herokuapp.com/auth/';
+  //private authURL ='http://localhost:8080/auth/';
   currentUserubject: BehaviorSubject<any> ;
   constructor(private httpClient:HttpClient) { 
 
@@ -21,7 +23,7 @@ export class AuthService {
   }
 
   signin(user1:any){    
-    return this.httpClient.post(`${this.URL}/usuario/login`, user1);  
+    return this.httpClient.post(`${this.authURL}/usuario/login`, user1);  
   }
 
   public nuevo(nuevoUsuario: NuevoUsuario):Observable<any>{

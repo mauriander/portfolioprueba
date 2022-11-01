@@ -90,7 +90,7 @@ getEdicionex():boolean{
        alert("Hize push qui"+experience.nombre);
      this.experienceService
         .editExperience(experience)
-       .subscribe((editexperience) => {this.experiences.push(editexperience);   });
+       .subscribe((editexperience) => {this.experiences.push(editexperience);  this.ngOnInit();  });
        
       // this.addEducacion.setEducacion(education);
      }

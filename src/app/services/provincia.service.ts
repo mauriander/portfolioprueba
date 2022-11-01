@@ -11,18 +11,19 @@ const httpOptions={
 })
 export class ProvinciaService {
 
-  URL="https://backendargprogprueba.herokuapp.com/";;
-   private apiUrl="https://backendargprogprueba.herokuapp.com/";
+  //URL="https://backendargprogprueba.herokuapp.com/";;
+  private apiUrl='https://backendargprogprueba.herokuapp.com/';
+   //private apiUrl='http://localhost:8080/';
     constructor(private http: HttpClient) { }
   
     nuevaProvincia(provincia: Provincia):Observable<Provincia>{
-  return this.http.post<Provincia>(this.URL+"new/provincia",provincia,httpOptions);
+  return this.http.post<Provincia>(this.apiUrl+"new/provincia",provincia,httpOptions);
       
   
     }
     buscarProvincia(id: number):Observable<Provincia>{
       const y=id;
-        return this.http.get<Provincia>(this.URL + "buscar/provincia/"+y);
+        return this.http.get<Provincia>(this.apiUrl + "buscar/provincia/"+y);
           }
 
           
@@ -35,12 +36,12 @@ export class ProvinciaService {
   
     verProvincias():Observable<Provincia[]>{
       
-      return this.http.get<Provincia[]>(this.URL + "ver/provincias");
+      return this.http.get<Provincia[]>(this.apiUrl + "ver/provincias");
     }
   
     editarProvincia(provincia: Provincia): Observable<Provincia> {
       const y=provincia.id;
-      return this.http.put<Provincia>(this.URL + "editar/provincia/"+y, provincia,httpOptions);
+      return this.http.put<Provincia>(this.apiUrl + "editar/provincia/"+y, provincia,httpOptions);
     }
   
   }

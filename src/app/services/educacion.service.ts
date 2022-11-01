@@ -12,7 +12,10 @@ import { environment } from '../../environments/environment';
 })
 export class EducacionService {
  
-  private apiUrl="https://backendargprogprueba.herokuapp.com/";;
+  //private apiUrl="https://backendargprogprueba.herokuapp.com/";
+  private apiUrl='https://backendargprogprueba.herokuapp.com/';
+  //private apiUrl='http://localhost:8080/';
+
  // private apiServerUrl = environment.urlBase;
   //private apiUrl='
 

@@ -14,18 +14,18 @@ export class LocalidadService {
 
 
 
-  URL="http://localhost:8080/";
-  private apiUrl="https://backendargprogprueba.herokuapp.com/";
-  
+  //private apiUrl="https://backendargprogprueba.herokuapp.com/";
+ // private apiUrl='http://localhost:8080/';
+ private apiUrl='https://backendargprogprueba.herokuapp.com/';
     constructor(private http: HttpClient) { }
   
     nuevaLocalidad(localidad: Localidad):Observable<Localidad>{
-  return this.http.post<Localidad>(this.URL+"new/localidad",localidad,httpOptions);
+  return this.http.post<Localidad>(this.apiUrl+"new/localidad",localidad,httpOptions);
           }
           
     buscarLocalidad(id: any):Observable<Localidad>{
       const y=id;
-        return this.http.get<Localidad>(this.URL + "buscar/localidad/"+y);
+        return this.http.get<Localidad>(this.apiUrl + "buscar/localidad/"+y);
           }
           
          
@@ -40,12 +40,12 @@ export class LocalidadService {
   
     verLocalidades():Observable<Localidad[]>{
       
-      return this.http.get<Localidad[]>(this.URL + "ver/localidades");
+      return this.http.get<Localidad[]>(this.apiUrl + "ver/localidades");
     }
   
     editarLocalidad(localidad: Localidad): Observable<Localidad> {
       const y=localidad.id;
-      return this.http.put<Localidad>(this.URL + "editar/localidad/"+y, localidad,httpOptions);
+      return this.http.put<Localidad>(this.apiUrl + "editar/localidad/"+y, localidad,httpOptions);
     }
   
 

@@ -125,7 +125,7 @@ export class ExperienceItemComponent implements OnInit {
         
     	this.onEditExperience.emit(this.form.value);    
 	      console.log(this.form.value);
-        this.ngOnInit();
+       
 		} 
     else {
 			alert("form no valido   ");

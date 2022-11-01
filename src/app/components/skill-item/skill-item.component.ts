@@ -67,6 +67,7 @@ this.sk=skill;
 
   onToggleS(skill: Skill) {
     this.onToggleSkill.emit(skill);
+    
     this.sk=skill;
   }
   open(content: any) {

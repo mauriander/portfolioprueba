@@ -16,16 +16,17 @@ const httpOptions={
 })
 export class AcercadeService {
 
- private apiUrl="https://backendargprogprueba.herokuapp.com/";
+ private apiUrl='https://backendargprogprueba.herokuapp.com/';
+ //private apiUrl='http://localhost:8080/';
 
 
  
- URL="https://backendargprogprueba.herokuapp.com/";
+ //URL="https://backendargprogprueba.herokuapp.com/";
   constructor(private http:HttpClient) { }
 
 
   verAcercades():Observable<Acercade[]>{
-     return this.http.get<Acercade[]>(this.URL+"ver/acercades");
+     return this.http.get<Acercade[]>(this.apiUrl+"ver/acercades");
   }
 
   nuevoAcercade(project: Acercade):Observable<Acercade> {
@@ -41,13 +42,13 @@ export class AcercadeService {
 
     buscarAcercde(id: any):Observable<Acercade>{
       const y=id;
-        return this.http.get<Acercade>(this.URL + "buscar/acercade/"+y);
+        return this.http.get<Acercade>(this.apiUrl + "buscar/acercade/"+y);
           }
 
     editarAcercade(project: Acercade):Observable<Acercade> {
       alert("Llego a servicio de editar acercade"+ project.id);
   const y=project.id;
-    return this.http.put<Acercade>(this.URL+"editar/acercade/"+y,project,httpOptions);}
+    return this.http.put<Acercade>(this.apiUrl+"editar/acercade/"+y,project,httpOptions);}
 
     
   

@@ -12,12 +12,13 @@ const httpOptions={
   providedIn: 'root'
 })
 export class SkillService {
-  URL="https://backendargprogprueba.herokuapp.com/";;
-  private apiUrl="https://backendargprogprueba.herokuapp.com/";
+  //URL="https://backendargprogprueba.herokuapp.com/";;
+  private apiUrl='https://backendargprogprueba.herokuapp.com/';
+  //private apiUrl='http://localhost:8080/';
   constructor(private http: HttpClient) { }
 
   nuevaSkill(skill: Skill):Observable<Skill>{
-return this.http.post<Skill>(this.URL+"new/skill",skill,httpOptions);
+return this.http.post<Skill>(this.apiUrl+"new/skill",skill,httpOptions);
 
 
   }
@@ -36,12 +37,12 @@ return this.http.post<Skill>(this.URL+"new/skill",skill,httpOptions);
 
   verSkills():Observable<Skill[]>{
     
-    return this.http.get<Skill[]>(this.URL + "ver/skills");
+    return this.http.get<Skill[]>(this.apiUrl + "ver/skills");
   }
 
   editarSkill(skill: Skill): Observable<Skill> {
     const y=skill.id;
-    return this.http.put<Skill>(this.URL + "editar/skill/"+y, skill,httpOptions);
+    return this.http.put<Skill>(this.apiUrl + "editar/skill/"+y, skill,httpOptions);
   }
 
  

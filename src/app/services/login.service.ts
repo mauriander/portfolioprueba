@@ -25,10 +25,10 @@ export class LoginService {
   usuario:Usuario | undefined;
   
   
-  //api:string ="https://protected-tor-95639.herokuapp.com";
+  api:string='https://backendargprogprueba.herokuapp.com';
 
 
-  api:string = "http://localhost:8080";
+  //api:string = "http://localhost:8080";
 
   constructor(private http:HttpClient) { }
 

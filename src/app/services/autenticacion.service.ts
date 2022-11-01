@@ -14,7 +14,7 @@ export class AutenticacionService {
   //url="http://bbftrj2bquu6c8redwr2-mysql.services.clever-cloud.com";
 
   
-  url = "http://localhost:8080";
+url='https://backendargprogprueba.herokuapp.com/';
   currentUserubject: BehaviorSubject<any>;
   //currentUserubject: BehaviorSubject<any> | undefined;
   //constructor(private htttp:HttpClient,private cookies:CookieService) {

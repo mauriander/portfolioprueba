@@ -6,22 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HeaderService {
-   //private apiURL = "https://api-portfolio-maxivr.herokuapp.com/persona/";
-   private apiURL = ''
-
+  //private apiUrl='https://backendargprogprueba.herokuapp.com/';
+   //private apiUrl='http://localhost:8080/';
+   private apiUrl='';
   constructor(private http:HttpClient) { }
 
-  getData(id: number): Observable<any> {
-    return this.http.get<any>(this.apiURL + "ver/" + id);
-  }
 
   updatePerfil(nombre:string, apellido: string, ubicacion: string, fechaNac: string, email:string, urlFoto:string, id : number):Observable<any> {
-    return this.http.patch<any>(this.apiURL + "modificar/" + id , 
+    return this.http.patch<any>(this.apiUrl + "modificar/" + id , 
     {'nombre':nombre, 'apellido':apellido, 'ubicacion':ubicacion, 'fechaNac':fechaNac, 'email':email, 'url_foto':urlFoto});
   }
 
-  updateAbout(about:string, id:number):Observable<any>{
-    console.log(about);
-    return this.http.patch<any>(this.apiURL + "modificar/" + id, {'sobre_mi':about});
-  }
+ 
 }
