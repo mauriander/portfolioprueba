@@ -17,7 +17,7 @@ const httpOptions={
 export class AcercadeService {
 
  
- //private apiUrl='http://localhost:8080/';
+ //private apiUrl='http://localho st:8080/';
  
  private apiUrl='https://backendmauriander.onrender.com/';
   constructor(private http:HttpClient) { }
