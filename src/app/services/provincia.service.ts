@@ -12,8 +12,9 @@ const httpOptions={
 export class ProvinciaService {
 
   //URL="https://backendargprogprueba.herokuapp.com/";;
-  private apiUrl='https://backendargprogprueba.herokuapp.com/';
-   //private apiUrl='http://localhost:8080/';
+ // private apiUrl='https://backendargprogprueba.herokuapp.com/';
+  //private apiUrl='http://localhost:8080/';
+  private apiUrl='https://backendmauriander.onrender.com/';
     constructor(private http: HttpClient) { }
   
     nuevaProvincia(provincia: Provincia):Observable<Provincia>{

@@ -2,10 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Educacion } from '../model/educacion.model';
+
 const httpOptions={
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,10 @@ import { environment } from '../../environments/environment';
 export class EducacionService {
  
   //private apiUrl="https://backendargprogprueba.herokuapp.com/";
-  private apiUrl='https://backendargprogprueba.herokuapp.com/';
-  //private apiUrl='http://localhost:8080/';
+ // private apiUrl='https://backendargprogprueba.herokuapp.com/';
+ 
+ //private apiUrl='http://localhost:8080/';
+ private apiUrl='https://backendmauriander.onrender.com/';
 
  // private apiServerUrl = environment.urlBase;
   //private apiUrl='
@@ -23,27 +25,27 @@ export class EducacionService {
 
 
   getEducaciones():Observable<Educacion[]>{
-     return this.http.get<Educacion[]>(this.apiUrl+'ver/educaciones',httpOptions);
+     return this.http.get<Educacion[]>(this.apiUrl+"ver/educations");
   }
 
   addEducacion(educacion: Educacion):Observable<Educacion> {
-    return this.http.post<Educacion>(this.apiUrl+"new/educacion",educacion,httpOptions);
+    return this.http.post<Educacion>(this.apiUrl+"new/education",educacion,httpOptions);
   }
 
     deleteEducacion(educacion: Educacion):Observable<Educacion> { 
       const y=educacion.id;
-      const url=this.apiUrl+"eliminar/educacion/"+y;
+      const url=this.apiUrl+"eliminar/education/"+y;
       return this.http.delete<Educacion>(url); 
 }
   editEducacion(educacion: Educacion):Observable<Educacion> {
-    alert("Llego a servicio de editar educacion"+ educacion.id + "y su nombre "+educacion.nombre);
+    alert("Llego a servicio de editar education"+ educacion.id + "y su nombre "+educacion.nombre);
 const y=educacion.id;
-  return this.http.put<Educacion>(this.apiUrl+"editar/educacion/"+y,educacion,httpOptions);}
+  return this.http.put<Educacion>(this.apiUrl+"editar/education/"+y,educacion,httpOptions);}
 
  edit2Educacion(educacion: Educacion):Observable<Educacion> {
    alert("Llego a servicio de editar 2 educacion"+ educacion.id + "y su nombre "+educacion.nombre);
   
-  return this.http.put<Educacion>(this.apiUrl+"edit/educacion/",educacion,httpOptions);
+  return this.http.put<Educacion>(this.apiUrl+"edit/education/",educacion,httpOptions);
 }
 
 

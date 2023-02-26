@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AutenticacionService {
-  //url="http://localhost:4200";
+ url="http://localhost:4200";
   //url="http://bbftrj2bquu6c8redwr2-mysql.services.clever-cloud.com";
-
+  //url="http://bac";
   
-url='https://backendargprogprueba.herokuapp.com/';
+//url='https://backendargprogprueba.herokuapp.com/';
   currentUserubject: BehaviorSubject<any>;
   //currentUserubject: BehaviorSubject<any> | undefined;
   //constructor(private htttp:HttpClient,private cookies:CookieService) {
   constructor(private htttp: HttpClient, private router: Router) {
-    console.log('el servicio de autentucacion al menos llega hasta aca');
+    console.log('el servicio de autentucacion al menos llega hasta aaca');
     this.currentUserubject = new BehaviorSubject<any>(
       JSON.parse(sessionStorage.getItem('currentUser') || '{}')
     );

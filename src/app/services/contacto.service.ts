@@ -9,9 +9,8 @@ import { formMail } from '../model/formMail';
 export class ContactoService {
   
  // private apiURL = ''
-  //private apiURL ='http://localhost:8080/';
-  private apiUrl='https://backendargprogprueba.herokuapp.com/';
-
+ // private apiUrl ='http://localhost:8080/';
+  private apiUrl='https://backendmauriander.onrender.com/';
   constructor(private http:HttpClient) { }
 
   sendMail(mail : formMail): Observable<any> { 

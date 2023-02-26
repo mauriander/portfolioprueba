@@ -11,8 +11,10 @@ const httpOptions={
   providedIn: 'root'
 })
 export class TipoeducacionService {
- // private apiUrl="http://localhost:8080/";
-  private apiUrl='https://backendargprogprueba.herokuapp.com/';
+ //private apiUrl="http://localhost:8080/";
+ private apiUrl='https://backendmauriander.onrender.com/';
+ //private apiUrl='https://backendargprogprueba.herokuapp.com/';
+ //private apiUrl='https://backendargprogprueba.herokuapp.com/';
   constructor(private http:HttpClient) { }
 
 

@@ -1,6 +1,6 @@
 <!-- Content 2 -->
 
-<div class="card mat-card" id="first-card" >
+<div class="card mat-card" id="first-card">
   <div class="card-titles" id="first-card">
     <div id="info" style="padding: 20px">
       <div id="info-data">
@@ -16,7 +16,7 @@
                 class="profile-image"
                 style="border-radius: 75%; width: 200px; height: 200 px"
                 src="{{ urlimage }}"
-                [src]=urlimage
+                [src]="urlimage"
               />
             </div>
             <!---->
@@ -25,80 +25,56 @@
               *ngIf="!onSessionacerca2"
               style="padding-left: 60px"
             >
-                          
-            <div *ngIf="onSessionacerca">
-              
-            </div>  <button
-            [ngClass]="{
-              btn: true,
-              'btn-right': true,
-              'btn-success': !mostrarForm,
-              'btn-danger': mostrarForm
-            }"
-            class="btn btn-primary"
-            (click)="toogleForm()"
-          >
-          <i class="fa fa-pen"></i>
-          </button>
-        </div>
-        <div *ngIf="!onSessionacerca">
-        
-        </div>
-      </div>
-           
-         
+              <div *ngIf="onSessionacerca"></div>
+              <button
+                [ngClass]="{
+                  btn: true,
+                  'btn-right': true,
+                  'btn-success': !mostrarForm,
+                  'btn-danger': mostrarForm
+                }"
+                class="btn btn-primary"
+                (click)="toogleForm()"
+              >
+                <i class="fa fa-pen"></i>
+              </button>
+            </div>
+            <div *ngIf="!onSessionacerca"></div>
           </div>
+        </div>
 
-
-
-        
-          
-          <div *ngIf="!onSessionacerca">
-
-            
-
-           
-              <form [formGroup]="form" (ngSubmit)="onSubmitimg($event)" *ngIf="mostrarForm">
-                
-                <div class="mb-3">  
-                <label class="form-label" for="eurlimage"></label>
-                <input
+        <div *ngIf="!onSessionacerca">
+          <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmitimg($event)"
+            *ngIf="mostrarForm"
+          >
+            <div class="mb-3">
+              <label class="form-label" for="eurlimage"></label>
+              <input
                 class="form-control"
-                 type="text"
+                type="text"
                 id="eurlimage"
                 #myNameElemgb
-                placeholder={{urlimage}}
+                placeholder="{{ urlimage }}"
                 formControlName="urlimage"
               />
 
-              <input            
-              type="file"
-              name="fileupload"
-              class="btn btn-primary"
-              (change)="cargar_imagen($event)"
-              formControlName="urlimage"
-            />
+              <input
+                type="file"
+                name="fileupload"
+                class="btn btn-primary"
+                (change)="cargar_imagen($event)"
+                formControlName="urlimage"
+              />
             </div>
-              <button
-              type="submit"
-              class="btn btn-primary"
-               >
+            <button type="submit" class="btn btn-primary">
               Aceptar Modificacion de Imagen
-              </button>
-             
-              </form>
-            
-          
-            
-          </div>
+            </button>
+          </form>
+        </div>
 
-
-
-          
-       
-            
-          
-          <!-- input tipo file archivo....
+        <!-- input tipo file archivo....
       
           <input
             #myNameElemgs
@@ -126,35 +102,45 @@
     </button>
 
     <div class="btn-edit" oneclick="cambiar_paraffo()">
-      <h4 style="font-size: 30px"> {{ apellido }}</h4>
+      <h4 style="font-size: 30px">{{ apellido }}</h4>
       <h4 style="font-size: 30px">{{ nombre }}</h4>
     </div>
 
     <!-- Llegamos con el segundo editor con modal-->
 
     <div>
-      <div id="info-fechanacimiento"> <h2>{{fechanac | date: 'dd'}}/{{fechanac | date:'MM'}}/{{fechanac | date: 'yyyy'}}</h2>
+      <div id="info-fechanacimiento">
+        <h2>
+          {{ fechanac | date : "dd" }}/{{ fechanac | date : "MM" }}/{{
+            fechanac | date : "yyyy"
+          }}
+        </h2>
       </div>
-      
-      <div id="info-email"><h2>{{ email }}</h2></div>
-      <div>
-        <div id="info-company"><h2>
 
-          {{ developer }}</h2></div>
+      <div id="info-email">
+        <h2>{{ email }}</h2>
+      </div>
+      <div>
+        <div id="info-company">
+          <h2>
+            {{ developer }}
+          </h2>
+        </div>
 
         <br />
 
         <div id="info-ubicacion">
-          <span><h2>{{ ubicacionl }} - {{ ubicacionp }}</h2></span>
-          
+          <span
+            ><h2>{{ ubicacionl }} - {{ ubicacionp }}</h2></span
+          >
         </div>
 
-        <span><a href={{contact}}>Contactame</a></span>
+        <span><a href="{{ contact }}">Contactame</a></span>
       </div>
     </div>
 
     <hr />
- 
+
     <h2>{{ descripcionacercade }}</h2>
     <div *ngIf="onSession">
       <div *ngIf="onSessionacerca">
@@ -175,20 +161,17 @@
             type="text"
             id="edescripcion"
             formControlName="descripcion"
-            
             #myNameElem
             size="flex"
             style="display: none"
-          placeholder="dentro form"
+            placeholder="dentro form"
           />
         </div>
       </form>
     </div>
-
-  
-    <div>
-      
-    <!--
+    
+    
+      <!--
       <div>
         <input
           type="text"
@@ -200,13 +183,13 @@
           style="display: none"
         />
       </div>
--->  
-      
+        -->
+
       <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
 
       input para el texto  tipo texto acercade
       <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display:none" />-->
-    </div>
+    
     <!-- input tipo file archivo....-->
 
     <input
@@ -218,16 +201,16 @@
       style="display: none"
     />
   </div>
-  <br />
-      <button
-        class="btn btn-primary"
-        (click)="getValue($event)"
-        #myNameElemb
-        style="display: none"
-      >
-        Aceptar Modificacion de contenido
-      </button>
-      <br />
+  
+  <button
+    class="btn btn-primary"
+    (click)="getValue($event)"
+    #myNameElemb
+    style="display: none"
+  >
+    Aceptar Modificacion de contenido
+  </button>
+  
   <!--  mODAL -->
   <ng-template #content let-modal>
     <div class="modal-header">
@@ -247,7 +230,7 @@
             class="form-control"
             type="text"
             id="enombre"
-            placeholder={{nombre}}
+            placeholder="{{ nombre }}"
             formControlName="nombre"
           />
         </div>
@@ -258,7 +241,7 @@
             class="form-control"
             type="text"
             id="eapellido"
-            placeholder={{apellido}}
+            placeholder="{{ apellido }}"
             formControlName="apellido"
           />
         </div>
@@ -322,7 +305,7 @@
             formControlName="localidad"
             id="elocalidad"
           >
-            <option [ngValue]="null">{{localidad.nombre}}</option>
+            <option [ngValue]="null">{{ localidad.nombre }}</option>
             <option
               *ngFor="let localidad of localidades"
               value="localidad"
@@ -344,7 +327,12 @@
           />
         </div>
         <!--[disabled]="form.invalid"-->
-        <button type="submit" class="btn btn-primary" (click)="modal.close()" [disabled]="form.invalid">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="modal.close()"
+          [disabled]="form.invalid"
+        >
           Agregar/Modificar Informacion Personal
         </button>
       </form>
@@ -356,7 +344,7 @@
 
   <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
 
-  <hr />
+  
 
   <pre>{{ closeResult }}</pre>
 </div>

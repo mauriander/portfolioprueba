@@ -7,7 +7,10 @@ import { PersonaEducacion } from '../model/personaeducacion.model';
   providedIn: 'root'
 })
 export class PersonaeducacionService {
-  private apiUrl='https://backendargprogprueba.herokuapp.com/';
+  //private apiUrl='https://backendargprogprueba.herokuapp.com/';
+  //private apiUrl='http://localhost:8080/persona/9';
+  //private apiUrl='http://backendmauriander/persona/9';
+  private apiUrl='https://backendmauriander.onrender.com/oersona/9';
 
   constructor(private http:HttpClient) { }
 
